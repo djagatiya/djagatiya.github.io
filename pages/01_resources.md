@@ -38,14 +38,17 @@ As below i listed some datasets that i have used or will be using in my project.
 
 > **BERT**: Pre-training of Deep Bidirectional Transformers for
 Language Understanding <br>
-> `May 2019` [Arxiv link](https://arxiv.org/pdf/1810.04805.pdf){:target="_blank"}
+> `Oct 2018` [Arxiv link](https://arxiv.org/pdf/1810.04805.pdf){:target="_blank"}
+
 
 > **Attention** Is All You Need <br>
-> `Dec 2017` [Arxiv link](https://arxiv.org/pdf/1706.03762.pdf){:target="_blank"}
+> `Jun 2017` [Arxiv link](https://arxiv.org/pdf/1706.03762.pdf){:target="_blank"}
+
 
 > **FastText** : Enriching Word Vectors with Subword Information <br>
-> `Jun 2017` [Arxiv link](https://arxiv.org/pdf/1607.04606.pdf){:target="_blank"}
+> `Jul 2016` [Arxiv link](https://arxiv.org/pdf/1607.04606.pdf){:target="_blank"}
+
 
 > **Word2Vec** : Efficient Estimation of Word Representations in
 Vector Space <br>
-> `2013` [Arxiv link](https://arxiv.org/pdf/1301.3781.pdf){:target="_blank"}
+> `Jan 2013` [Arxiv link](https://arxiv.org/pdf/1301.3781.pdf){:target="_blank"}
