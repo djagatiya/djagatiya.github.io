@@ -7,7 +7,8 @@ date:   2022-06-20 05:03:26 +0530
 
 **Objective**: To explore `[OntoNotes]` dataset for NER task and convert it to `CONLL` format.
 
-- Project: https://catalog.ldc.upenn.edu/LDC2013T19
+
+- Project: [https://catalog.ldc.upenn.edu/LDC2013T19](https://catalog.ldc.upenn.edu/LDC2013T19)
 - Release Year: 2013
 - Data Sources: telephone talks, newswire, newsgroups, weblogs, religious text, etc.
 - Format: Penn Treebank
@@ -22,7 +23,7 @@ At the end we will have train.conll, test.conll and validate.conll files.
 
 ## Implementation
 
-### import libraries
+### Import libraries
 
 Importing just huggingface's `datasets` library.
 
@@ -31,6 +32,10 @@ Importing just huggingface's `datasets` library.
 import datasets
 ```
 
+    /media/work/WorkSpace/NER-System/.env/lib/python3.9/site-packages/tqdm/auto.py:22: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+      from .autonotebook import tqdm as notebook_tqdm
+
+
 Assert the library version to make sure we are using that as expected versions. 
 
 
@@ -38,7 +43,7 @@ Assert the library version to make sure we are using that as expected versions.
 assert datasets.__version__ == '2.3.2'
 ```
 
-### load dataset
+### Load dataset
 
 Loading a well prepared `Ontonotes v5` dataset from huggingface itself.
 
@@ -48,7 +53,7 @@ dset = datasets.load_dataset("conll2012_ontonotesv5", "english_v4")
 ```
 
     Reusing dataset conll2012_ontonotesv5 (/home/djagatiya/.cache/huggingface/datasets/conll2012_ontonotesv5/english_v4/1.0.0/c541e760a5983b07e403e77ccf1f10864a6ae3e3dc0b994112eff9f217198c65)
-    100%|██████████| 3/3 [00:00<00:00, 147.00it/s]
+    100%|██████████| 3/3 [00:00<00:00, 135.36it/s]
 
 
 let's see how many samples which we have ? A dataset is already splitted out into train/test/validate. 
@@ -98,7 +103,7 @@ print(train_set)
     })
 
 
-### dataset understanding
+### Dataset understanding
 
 This dataset is being used for multiple purpose. like NER (Named Entity recognization), POS (Part of speech tagging) and Coreference resolution.
 
@@ -223,6 +228,8 @@ print(decoded_entity_names)
     ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-ORG', 'I-ORG', 'O']
 
 
+### Convert to conll
+
 A `save_as_conll` function is used to write dataset into file as conll format. This function will iterate every document from fullset and write pair of word and ner into file.
 
 Format:
@@ -251,7 +258,7 @@ def save_as_conll(data_set, out_path):
 save_as_conll(train_set, "data/ontonotes/train.conll")
 ```
 
-    100%|██████████| 1940/1940 [00:16<00:00, 116.70it/s]
+    100%|██████████| 1940/1940 [00:16<00:00, 120.40it/s]
 
     Total_sentences: 75187
 
@@ -264,7 +271,7 @@ save_as_conll(train_set, "data/ontonotes/train.conll")
 save_as_conll(dset['test'], "data/ontonotes/test.conll")
 ```
 
-    100%|██████████| 222/222 [00:01<00:00, 121.85it/s]
+    100%|██████████| 222/222 [00:01<00:00, 123.97it/s]
 
     Total_sentences: 9479
 
@@ -277,7 +284,7 @@ save_as_conll(dset['test'], "data/ontonotes/test.conll")
 save_as_conll(dset['validation'], "data/ontonotes/validation.conll")
 ```
 
-    100%|██████████| 222/222 [00:01<00:00, 123.47it/s]
+    100%|██████████| 222/222 [00:01<00:00, 122.55it/s]
 
     Total_sentences: 9603
 
@@ -288,7 +295,7 @@ save_as_conll(dset['validation'], "data/ontonotes/validation.conll")
 Now we have ontonotes 5.0 dataset in conll format. which has around `70K` of training samples and `10K` samples for testing.
 
 
-```
+```python
 !du -k data/ontonotes/*
 ```
 
@@ -306,7 +313,9 @@ Now we have ontonotes 5.0 dataset in conll format. which has around `70K` of tra
 | Validate | 222 | 9603 | 1272 KB |
 
 ## Reference
-- https://huggingface.co/datasets/conll2012_ontonotesv5
-- https://huggingface.co/docs/datasets/loading
-- https://huggingface.co/docs/datasets/access
-- https://huggingface.co/docs/datasets/v2.3.2/en/package_reference/main_classes
+- [https://huggingface.co/datasets/conll2012_ontonotesv5](https://huggingface.co/datasets/conll2012_ontonotesv5)
+- [https://huggingface.co/docs/datasets/loading](https://huggingface.co/docs/datasets/loading)
+- [https://huggingface.co/docs/datasets/access](https://huggingface.co/docs/datasets/access)
+- [https://huggingface.co/docs/datasets/v2.3.2/en/package_reference/main_classes](https://huggingface.co/docs/datasets/v2.3.2/en/package_reference/main_classes)
+
+
