@@ -27,14 +27,5 @@ layout: default
     {%- endfor -%}
   </ul>
 
-  <h2>MicroBlogs</h2>
-
-  {% for mblog in site.microblog %}
-    <div style="border: 2px solid white; padding:5px 10px;margin: 5px 0;">
-        <h3><b>{{ mblog.author }}</b> • <span style="font-size: 12px">{{ mblog.date | date:"%b %-d, %Y" }}</span></h3>
-        <p>{{ mblog.content | markdownify }}</p>
-    </div>
-  {% endfor %}
-
   
 </div>
